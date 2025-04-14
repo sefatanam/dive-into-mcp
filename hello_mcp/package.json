@@ -1,0 +1,27 @@
+{
+	"name": "hello_mcp",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "Hello Model Context Protocol",
+	"scripts": {
+		"build": "tsc && chmod +x dist/index.js",
+		"start": "node dist/index.js",
+		"build:ncc": "npx ncc build index.ts -o dist && chmod +x dist/index.js",
+		"build:tsup": "npx tsup index.ts --format esm --dts --clean && chmod +x dist/index.js",
+		"build:esbuild": "npx esbuild index.ts --bundle --platform=node --outfile=dist/bundle.js --format=esm && chmod +x dist/index.js"
+	},
+	"main": "index.ts",
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.9.0",
+		"zod": "^3.24.2"
+	},
+	"bin": {
+		"hello_mcp": "./dist/index.js"
+	},
+	"devDependencies": {
+		"@vercel/ncc": "^0.38.3",
+		"esbuild": "^0.25.2",
+		"tsup": "^8.4.0",
+		"typescript": "^5.8.3"
+	}
+}
